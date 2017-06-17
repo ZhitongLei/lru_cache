@@ -15,6 +15,7 @@ virtual void Earse(const std::string &key) = 0;
 
 ## 底层实现
 底层使用hash表实现，使用链表解决hash冲突，产生相同hash值的key落在同一桶（链表）中，如下图，n1和n5，n4和n6，具有相同hash值。
+
 ![](https://github.com/ZhitongLei/lru_cache/blob/master/doc/hash-table.png)
 
 ### 自动扩容
@@ -29,4 +30,4 @@ leveldb在每个节点增加了2个指针，prev和next指针，使得hash表中
 ![](https://github.com/ZhitongLei/lru_cache/blob/master/doc/double-link-list.png)
 
 ### 分shard减少读写冲突
-为了减少读写冲突，LRUCache使用了16个hash表，也就是16shard，并发读写时，锁是shard级别的，避免了大范围的锁。# leveldb LRU cache 实现剖析
+为了减少读写冲突，LRUCache使用了16个hash表，也就是16shard，并发读写时，锁是shard级别的，避免了大范围的锁。
