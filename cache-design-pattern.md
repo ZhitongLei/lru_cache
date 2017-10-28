@@ -2,7 +2,7 @@ cache.h
 
     class Cache {
     public:
-	struct Handle { };  // Cache中一条记录到句柄，用户时候后需要自己Release
+	struct Handle { };  // Cache中一条记录到句柄，用户使用后需要自己Release
 
         virtual Insert()
         virtual LookUp()
